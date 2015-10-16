@@ -1,7 +1,7 @@
 {
   "name": "deps-regex",
   "description": "Regular expression for matching javascript require statements.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/mathieudutour/deps-regex",
   "author": "Mathieu Dutour <mathieu@dutour.me>",
   "repository": "mathieudutour/deps-regex",
