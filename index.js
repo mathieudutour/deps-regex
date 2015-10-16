@@ -41,7 +41,7 @@ DepsRegex.prototype.test = function(string) {
 DepsRegex.prototype.getDependencies = function(string) {
   var matches = [], m = this.regex().exec(string);
   while (m) {
-    matches.push(m[1]);
+    matches.push(m[1] || m[2] || m[3]);
     string = string.slice(m.index + m[0].length);
     m = this.regex().exec(string);
   }

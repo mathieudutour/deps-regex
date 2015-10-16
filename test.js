@@ -75,6 +75,12 @@ describe('requires regex', function() {
 
   it('should return the dependencies', function() {
     var str = 'var path = require(\'path\')var list = require(\'dirs\');';
+    var strES6 = 'import path from \'path\';import list from \'dirs\';';
+    var strCoffee = 'path = require \'path\';list = require \'dirs\';';
+    var strMixed = 'var path = require(\'path\');import list from \'dirs\';';
     assert.deepEqual(re.getDependencies(str), ['path', 'dirs']);
+    assert.deepEqual(re.getDependencies(strES6), ['path', 'dirs']);
+    assert.deepEqual(re.getDependencies(strCoffee), ['path', 'dirs']);
+    assert.deepEqual(re.getDependencies(strMixed), ['path', 'dirs']);
   });
 });
