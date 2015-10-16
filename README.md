@@ -2,6 +2,8 @@
 
 > Regular expression for matching javascript require statements.
 
+This is pretty fragile and created for perf reasons where using a real parser would be overkill.
+
 ## Install
 
 Install with [npm](https://www.npmjs.com/)
