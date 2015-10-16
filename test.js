@@ -31,10 +31,15 @@ describe('requires regex', function() {
   });
 
   it('should match ES6 import statements', function() {
+    assert(re.test('import \'foo\';'));
     assert(re.test('import bar from \'foo\';'));
     assert(re.test('import bar from \'foo\''));
     assert(re.test('import * from \'foo\';'));
     assert(re.test('import bar as baz from \'foo\';'));
+    assert(re.test('import { bar } from \'foo\';'));
+    assert(re.test('import { bar as baz } from \'foo\';'));
+    assert(re.test('import { bar, baz } from \'foo\';'));
+    assert(re.test('import bar, * from \'foo\';'));
   });
 
   it('should match coffescript require statements', function() {

@@ -18,7 +18,7 @@ function DepsRegex(options) {
   regex = '(?:(?:var|const|let)' + matchingName + '=\\s*)?require\\(' + matchingDeps + '\\);?';
 
   if (options.matchES6 !== false) {
-    regex += '|import' + matchingName + 'from\\s*' + matchingDeps + ';?';
+    regex += '|import(?:' + matchingName + 'from\\s*)?' + matchingDeps + ';?';
   }
 
   if (options.matchCoffeescript !== false) {
