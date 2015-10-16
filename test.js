@@ -40,11 +40,17 @@ describe('requires regex', function() {
     assert(re.test('import { bar as baz } from \'foo\';'));
     assert(re.test('import { bar, baz } from \'foo\';'));
     assert(re.test('import bar, * from \'foo\';'));
+    assert(re.test('import bar, { baz } from \'foo\''));
   });
 
   it('should match coffescript require statements', function() {
     assert(re.test('bar = require \'foo\''));
     assert(re.test('require \'foo\''));
+  });
+
+  it('should match grunt task load statements', function() {
+    assert(re.test('grunt.loadNpmTasks(\'grunt-contrib-jshint\');'));
+    assert(re.test('grunt.tasks.loadNpmTasks(\'grunt-contrib-jshint\');'));
   });
 
   it('should return the full statement and module name', function() {

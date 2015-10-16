@@ -25,6 +25,10 @@ function DepsRegex(options) {
     regex += '|(?:' + matchingName + '=\\s*)?require' + matchingDeps + ';?';
   }
 
+  if (options.matchGruntTask !== false) {
+    regex += '|grunt(.tasks)?.loadNpmTasks\\(' + matchingDeps + '\\);?';
+  }
+
   this.regex = function() {
     return new RegExp(regex, 'g');
   };
