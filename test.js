@@ -49,8 +49,8 @@ describe('requires regex', function() {
   });
 
   it('should match grunt task load statements', function() {
-    assert(re.test('grunt.loadNpmTasks(\'grunt-contrib-jshint\');'));
-    assert(re.test('grunt.tasks.loadNpmTasks(\'grunt-contrib-jshint\');'));
+    assert(re.test('grunt.loadNpmTasks(\'foo\');'));
+    assert(re.test('grunt.tasks.loadNpmTasks(\'foo\');'));
   });
 
   it('should return the full statement and module name', function() {
@@ -89,9 +89,11 @@ describe('requires regex', function() {
     var strES6 = 'import path from \'path\';import list from \'dirs\';';
     var strCoffee = 'path = require \'path\';list = require \'dirs\';';
     var strMixed = 'var path = require(\'path\');import list from \'dirs\';';
+    var strGrunt = 'grunt.tasks.loadNpmTasks(\'foo\');';
     assert.deepEqual(re.getDependencies(str), ['path', 'dirs']);
     assert.deepEqual(re.getDependencies(strES6), ['path', 'dirs']);
     assert.deepEqual(re.getDependencies(strCoffee), ['path', 'dirs']);
     assert.deepEqual(re.getDependencies(strMixed), ['path', 'dirs']);
+    assert.deepEqual(re.getDependencies(strGrunt), ['foo']);
   });
 });
