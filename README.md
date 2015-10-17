@@ -28,6 +28,12 @@ re.getDependencies('var foo = require(\'bar\');');
 
 ```
 
+## Known false positives
+
+```js
+module.exports = 'require("false-positive");';
+```
+
 ## Running tests
 
 Install dev dependencies:
