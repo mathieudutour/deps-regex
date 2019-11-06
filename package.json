@@ -19,7 +19,7 @@
   "devDependencies": {
     "mocha": "*",
     "should": "*",
-    "eslint": "^1.6.0"
+    "eslint": "^6.6.0"
   },
   "keywords": [
     "exec",
