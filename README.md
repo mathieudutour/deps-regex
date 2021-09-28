@@ -1,6 +1,6 @@
 # deps-regex
 
-> Regular expression for matching javascript require statements.
+> Regular expression for matching javascript require/import statements.
 
 This is pretty fragile and created for perf reasons where using a real parser would be overkill.
 
@@ -9,23 +9,21 @@ This is pretty fragile and created for perf reasons where using a real parser wo
 Install with [npm](https://www.npmjs.com/)
 
 ```sh
-$ npm i deps-regex --save
+npm install --save deps-regex
 ```
 
 ## Usage
 
 ```js
-var DepsRegex = require('deps-regex');
+var DepsRegex = require("deps-regex");
 var re = new DepsRegex({
   matchInternal: true,
   matchES6: true,
-  matchCoffeescript: true
-})
+  matchCoffeescript: true,
+});
 
-re.getDependencies('var foo = require(\'bar\');');
-//=>
-// [ 'bar']
-
+re.getDependencies("var foo = require('bar');");
+// => [ 'bar']
 ```
 
 ## Known false positives
@@ -34,17 +32,17 @@ re.getDependencies('var foo = require(\'bar\');');
 module.exports = 'require("false-positive");';
 ```
 
-## Running tests
+## Contributing
+
+Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/mathieudutour/deps-regex/issues/new).
+
+### Running tests
 
 Install dev dependencies:
 
 ```sh
-$ npm i -d && npm test
+npm install && npm test
 ```
-
-## Contributing
-
-Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/mathieudutour/deps-regex/issues/new).
 
 ## License
 
